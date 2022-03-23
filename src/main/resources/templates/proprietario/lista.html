@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-ao" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="stylesheet" th:href="@{/webjars/materializecss/1.0.0/css/materialize.min.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <title>GestRendaApp</title>
+
+    <script type="javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script type="javascript" src="webjars/materializecss/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+
+<!--HEADER-->
+<div id="header">
+
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg navbar-light justify-content-between mb-4"
+             style="box-sizing: border-box">
+            <div class="row">
+
+                <div class="col-auto ml-md-2">
+                    <button
+                            aria-controls="navbarNav"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                            class="navbar-toggler"
+                            data-target="#navbarNav"
+                            data-toggle="collapse"
+                            type="button">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse col-6" id="navbarNav">
+                    <div class="navbar-brand col-2"><a href="#">Logo_home</a></div>
+                    <h5 class="hide-on-large">Menu</h5>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/inquilino}">Inquilinos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/residencia}">Residências</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/proprietario}">Proprietários</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="right-align col-4"
+                     id="login">
+                    <a class="btn btn-outline-primary" th:href="@{/usuario}"><span>Faça o seu login</span></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!--//HEADER-->
+
+<!--Proprietários-->
+<div>
+    <a href="/proprietario/novo">+</a>
+</div>
+<section>
+    <div class="mb-2 container prop" id="prop" th:each="p1 : ${list}">
+        <a th:href="${#mvc.url('PC#proprietario').arg(0, p1.ID).build()}">
+            <div class="row">
+                <div class="col-lg-1 col-12"><img alt="" class="img-fluid" height="50px" th:src="${p1.caminhoDaImagem}"
+                                                  width="50px"></div>
+                <div class="col-lg-11 col-12">
+                    <hgroup>
+                        <h3><span th:text="${p1}"></span></h3>
+                        <h6><span th:text="${p1.residencias.size()}"></span> <span>casa(s)</span></h6>
+                    </hgroup>
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+<!--//Proprietários-->
+
+</body>
+</html>

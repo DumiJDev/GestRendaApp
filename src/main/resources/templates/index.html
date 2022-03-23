@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-ao" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="/material-icons/css/material-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/material-icons/iconfont/material-icons.css">
+    <link href="/webjars/materializecss/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <title>GestRendaApp</title>
+
+    <script src="webjars/jquery/3.5.1/jquery.min.js" type="javascript"></script>
+    <script src="webjars/materializecss/1.0.0/js/materialize.min.js" type="javascript"></script>
+</head>
+<body>
+
+<!--HEADER-->
+<div id="header">
+    <nav>
+        <div class="row container">
+            <div class="container col s12 m9" id="navbarNav">
+                <ul class="row">
+                    <li class="col s12 m4">
+                        <a class="btn btn-flat" th:href="@{/inquilino}">Inquilinos</a>
+                    </li>
+                    <li class="col s12 m4">
+                        <a class="btn btn-flat" th:href="@{/residencia}">Residências</a>
+                    </li>
+                    <li class="col s12 m4">
+                        <a class="btn btn-flat" th:href="@{/proprietario}">Proprietários</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col s12 m3 " id="login">
+                <a class="btn waves-effect waves-light light-blue" href="/usuario/login">
+                    <span class="mi mi-login"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+<!--//HEADER-->
+
+</body>
+</html>
